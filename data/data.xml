@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<data>
+	<users>
+		<user>
+			<id>U001</id>
+			<name>Bill Gates</name>
+			<email>bgates@example.com</email>
+		</user>
+		<user>
+			<id>U002</id>
+			<name>Mark Zuckerberg</name>
+			<email>mzuckerberg@example.com</email>
+		</user>
+		<user>
+			<id>U003</id>
+			<name>Sam Altman</name>
+			<email>saltman@example.com</email>
+		</user>
+		<user>
+			<id>U004</id>
+			<name>Satya Nadella</name>
+			<email>snadella@example.com</email>
+		</user>		
+	</users>
+</data>
