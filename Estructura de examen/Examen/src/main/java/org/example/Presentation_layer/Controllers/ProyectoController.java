@@ -4,7 +4,7 @@ import org.example.Domain_Layer.Proyecto;
 import org.example.Domain_Layer.Usuario;
 import org.example.ServiceLayer.Service;
 import org.example.ServiceLayer.ServiceObserver;
-import org.example.Utilities.Encargados;
+
 
 import java.util.List;
 

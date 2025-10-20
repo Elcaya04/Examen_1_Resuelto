@@ -3,7 +3,7 @@ package org.example.Presentation_layer.Models;
 import org.example.Domain_Layer.Proyecto;
 import org.example.ServiceLayer.ServiceObserver;
 import org.example.Utilities.ChangeType;
-import org.example.Utilities.Encargados;
+
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;

@@ -54,23 +54,30 @@ public class Tarea {
     public void setFechaFinalizacion(String fechaFinalizacion) { this.fechaFinalizacion = fechaFinalizacion; }
 
     public PrioridadTarea getPrioridad() {
-        try {
-            return PrioridadTarea.valueOf(prioridad.toUpperCase().replace("-", "_"));
-        } catch (Exception e) {
-            return PrioridadTarea.MEDIA;
+        if (prioridad == null) return PrioridadTarea.MEDIA;
+
+        for (PrioridadTarea p : PrioridadTarea.values()) {
+            if (p.getDescripcion().equals(prioridad) || p.name().equals(prioridad)) {
+                return p;
+            }
         }
-    }
+        return PrioridadTarea.MEDIA;
+        }
+
 
     public void setPrioridad(PrioridadTarea prioridad) {
         this.prioridad = prioridad.toString();
     }
 
     public EstadoTarea getEstado() {
-        try {
-            return EstadoTarea.valueOf(estado.toUpperCase().replace("-", "_"));
-        } catch (Exception e) {
-            return EstadoTarea.ABIERTA;
+        if (estado == null) return EstadoTarea.ABIERTA;
+
+        for (EstadoTarea e : EstadoTarea.values()) {
+            if (e.getDescripcion().equals(estado) || e.name().equals(estado)) {
+                return e;
+            }
         }
+        return EstadoTarea.ABIERTA;
     }
 
     public void setEstado(EstadoTarea estado) {

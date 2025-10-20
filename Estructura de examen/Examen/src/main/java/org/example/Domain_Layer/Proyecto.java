@@ -1,7 +1,7 @@
 package org.example.Domain_Layer;
 
 import jakarta.xml.bind.annotation.*;
-import org.example.Utilities.Encargados;
+
 
 import java.util.ArrayList;
 import java.util.List;
