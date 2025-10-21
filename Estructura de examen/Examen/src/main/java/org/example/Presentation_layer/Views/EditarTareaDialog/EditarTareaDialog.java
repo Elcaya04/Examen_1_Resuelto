@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class EditarTareaDialog extends JDialog {
+    private JTextField txtDescripcion;
+    private JTextField txtFechaFinalizacion;
     private JComboBox<PrioridadTarea> prioridadCombo;
     private JComboBox<EstadoTarea> estadoCombo;
     private JButton guardarButton;
@@ -24,23 +26,31 @@ public class EditarTareaDialog extends JDialog {
     }
 
     private void initComponents() {
-        JPanel panel = new JPanel(new GridLayout(3, 2, 10, 10));
+        JPanel panel = new JPanel(new GridLayout(5, 2, 10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
+        // Descripción
+        panel.add(new JLabel("Descripción:"));
+        txtDescripcion = new JTextField(tarea.getDescripcion(), 20);
+        panel.add(txtDescripcion);
+
+        // Prioridad
         panel.add(new JLabel("Prioridad:"));
         prioridadCombo = new JComboBox<>(PrioridadTarea.values());
         prioridadCombo.setSelectedItem(tarea.getPrioridad());
         panel.add(prioridadCombo);
 
+        // Estado
         panel.add(new JLabel("Estado:"));
         estadoCombo = new JComboBox<>(EstadoTarea.values());
         estadoCombo.setSelectedItem(tarea.getEstado());
         panel.add(estadoCombo);
 
-        panel.add(new JLabel("Descripción:"));
-        JLabel descLabel = new JLabel(tarea.getDescripcion());
-        descLabel.setFont(new Font("Arial", Font.PLAIN, 11));
-        panel.add(descLabel);
+        // Número de tarea (solo lectura)
+        panel.add(new JLabel("Número:"));
+        JLabel numeroLabel = new JLabel(tarea.getNumero());
+        numeroLabel.setFont(new Font("Arial", Font.BOLD, 11));
+        panel.add(numeroLabel);
 
         JPanel botonesPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 0));
 
@@ -57,10 +67,21 @@ public class EditarTareaDialog extends JDialog {
         add(botonesPanel, BorderLayout.SOUTH);
 
         pack();
-        setSize(400, 200);
+        setSize(450, 250);
     }
 
     private void guardar() {
+        String descripcion = txtDescripcion.getText().trim();
+
+        if (descripcion.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "La descripción es obligatoria",
+                    "Error de validación",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        tarea.setDescripcion(descripcion);
         tarea.setPrioridad((PrioridadTarea) prioridadCombo.getSelectedItem());
         tarea.setEstado((EstadoTarea) estadoCombo.getSelectedItem());
         confirmado = true;

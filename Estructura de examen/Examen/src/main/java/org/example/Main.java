@@ -31,7 +31,6 @@ public class Main {
             dataDir.mkdirs();
 
             // Rutas de los archivos XML
-            // IMPORTANTE: Asegúrate que data.xml esté en la carpeta "data"
             File dataFile = new File(dataDir, "data.xml");
             File proyectoFile = new File(dataDir, "proyectos.xml");
             File tareaFile = new File(dataDir, "tareas.xml");
@@ -46,7 +45,7 @@ public class Main {
                         JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
+            //Creando los filestores
             FileStore<Usuario> usuarioFileStore = new UsuarioFileStore(dataFile);
             FileStore<Proyecto> proyectoFileStore = new ProyectoFileStore(proyectoFile);
             FileStore<Tarea> tareaFileStore = new TareaFileStore(tareaFile);
