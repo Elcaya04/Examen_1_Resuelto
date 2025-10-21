@@ -9,7 +9,6 @@ import java.awt.*;
 
 public class EditarTareaDialog extends JDialog {
     private JTextField txtDescripcion;
-    private JTextField txtFechaFinalizacion;
     private JComboBox<PrioridadTarea> prioridadCombo;
     private JComboBox<EstadoTarea> estadoCombo;
     private JButton guardarButton;
